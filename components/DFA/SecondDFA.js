@@ -206,6 +206,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         left={["86%", null, "86.2%", null, null, "87.1%"]}
         rotate={["40", null, "40", null, null, "30"]}
       />
+      
 
       <Atom
         variant="1"
@@ -214,7 +215,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 5 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q5
+        q1
       </Atom>
       <Atom
         variant="2"
@@ -223,7 +224,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 7 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q7
+        q2
       </Atom>
       <Atom
         variant="3"
@@ -232,7 +233,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 6 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q6
+        q3
       </Atom>
       <Atom
         variant="4"
@@ -241,7 +242,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 3 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q3
+        q4
       </Atom>
       <Atom
         variant="5"
@@ -250,7 +251,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 8 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q8
+        q5
       </Atom>
       <Atom
         variant="6"
@@ -259,7 +260,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 4 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q4
+        q6
       </Atom>
       <Atom
         variant="7"
@@ -268,7 +269,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 2 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q2
+        q7
       </Atom>
       <Atom
         variant="8"
@@ -277,7 +278,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 1 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q1
+        q8
       </Atom>
       <Atom
         variant="9"
