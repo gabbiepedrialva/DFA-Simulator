@@ -18,9 +18,11 @@ const Main = () => {
   const [simulating, setSimulating] = useState(false);
 
   const validString = useToast();
+  const invalidString = useToast();
   const trapString = useToast();
   const shortString = useToast();
   const notInLanguageString = useToast();
+  const emptyString = useToast();
   const closeToasts = useToast();
 
   let input = string;
@@ -32,12 +34,14 @@ const Main = () => {
     const countValue = e.target.value.length;
     setCount(countValue);
   };
+
   const handleReset = () => {
     setString("");
     setCount(0);
     setData("");
     closeAll();
   };
+
   const handleSwitch = () => {
     setProb2((prev) => !prev);
     setData("");
@@ -47,13 +51,23 @@ const Main = () => {
   const closeAll = () => {
     closeToasts.closeAll();
   };
-  const validToast = () => {
-    validString({
-      title: "Valid String!",
-      status: "success",
+
+  const emptyToast = () => {
+    emptyString({
+      title: "Empty Input",
+      status: "warning",
       isClosable: true,
     });
   };
+
+  const notInLanguageToast = () => {
+    notInLanguageString({
+      title: "Invalid Input",
+      status: "warning",
+      isClosable: true,
+    });
+  };
+
   const trapToast = () => {
     trapString({
       title: "Invalid: Trapped",
@@ -61,6 +75,7 @@ const Main = () => {
       isClosable: true,
     });
   };
+
   const shortToast = () => {
     shortString({
       title: "Invalid: Too Short",
@@ -68,30 +83,44 @@ const Main = () => {
       isClosable: true,
     });
   };
-  const notInLanguageToast = () => {
-    notInLanguageString({
-      title: "Empty/Invalid Input",
-      status: "warning",
+
+  const invalidToast = () => {
+    invalidString({
+      title: "Invalid String",
+      status: "error",
       isClosable: true,
     });
   };
 
-  const handleValid = () => {
-    // console.log("DONE OK");
-    setSimulating(false);
-    validToast();
-    setData(results);
+  const validToast = () => {
+    validString({
+      title: "Valid String!",
+      status: "success",
+      isClosable: true,
+    });
   };
+
   const handleTrapped = () => {
-    // console.log("DONE TRAPPED");
     setSimulating(false);
     trapToast();
     setData(results);
   };
+
   const handleShort = () => {
-    // console.log("DONE SHORT");
     setSimulating(false);
     shortToast();
+    setData(results);
+  };
+
+  const handleInvalid = () => {
+    setSimulating(false);
+    invalidToast();
+    setData(results);
+  };
+
+  const handleValid = () => {
+    setSimulating(false);
+    validToast();
     setData(results);
   };
 
@@ -99,132 +128,140 @@ const Main = () => {
     input = input.replace(/\s+/g, "").toLowerCase();
   };
 
+
   const handleTest = (e) => {
     e.preventDefault();
     handleInputString();
-
+  
     if (!prob2) {
-      if (input == "") {
+      if (input === "") {
+        emptyToast();
+      } else if (!input.match(/^[ab]+$/)) {
         notInLanguageToast();
-        // console.log("No valid configuration for input string/empty");
-      } else if (input.includes("a") || input.includes("b")) {
-        // console.log("PROB1");
+      } else {
         results = new DFA(input, problem1, language1);
-        // console.log(results);
         setData(results);
-      } else {
-        notInLanguageToast();
-        // console.log("No valid configuration for input string!!");
-      }
+      } 
     } else {
-      if (input == "") {
+      if (input === "") {
+        emptyToast();
+      } else if (!input.match(/^[01]+$/)) {
         notInLanguageToast();
-        // console.log("No valid configuration for input string/empty");
-      } else if (input.includes("0") || input.includes("1")) {
-        // console.log("PROB2");
-        results = new DFA(input, problem2, language2);
-        // console.log(results);
-        setData(results);
       } else {
-        notInLanguageToast();
-        // console.log("No valid configuration for input string!!");
+        results = new DFA(input, problem2, language2);
+        setData(results);
       }
     }
   };
-
+  
+  
   const handleSimulation = (e) => {
     e.preventDefault();
     handleInputString();
-
+  
     if (!prob2) {
-      if (input == "") {
+      if (input === "") {
+        emptyToast();
+      } else if (!input.match(/^[ab]+$/)) {
         notInLanguageToast();
-        // console.log("No valid configuration for input string/empty");
-      } else if (input.includes("a") || input.includes("b")) {
+      } else {
         setSimulating(true);
-        // console.log("PROB1");
         results = new DFA(input, problem1, language1);
-        // console.log(results);
         const pathWithZeroes = [0].concat(...results.path.map((e) => [e, 0]));
-        // console.log(pathWithZeroes);
+        let messageDisplayed = false;
         pathWithZeroes.some((node, i) => {
           setTimeout(() => {
             setCurrentNode(node);
-            node == pathWithZeroes[pathWithZeroes.length - 2] &&
-            !pathWithZeroes.includes("T") &&
-            !pathWithZeroes.includes("eos")
-              ? handleValid()
-              : node == "T" && pathWithZeroes.slice(-4)[0] == "T"
-              ? handleTrapped()
-              : pathWithZeroes.slice(-4)[3 - 1] == node &&
-                !pathWithZeroes.includes("T") &&
-                handleShort();
+            if ((node === "T1" || node === "T2") && !messageDisplayed) {
+              handleTrapped();
+              messageDisplayed = true;
+            } else if (i === pathWithZeroes.length - 2 && !messageDisplayed) {
+                if (input.length < 7) {
+                    handleShort();
+                    messageDisplayed = true;
+                } else if (node === 14 || node === 15) {
+                    handleValid();
+                    messageDisplayed = true;
+                } else {
+                    handleInvalid();
+                    messageDisplayed = true;
+                }
+              }
           }, i * 200);
         });
-      } else {
-        notInLanguageToast();
-        // console.log("No valid configuration for input string!!");
       }
     } else {
-      if (input == "") {
+      if (input === "") {
+        emptyToast();
+      } else if (!input.match(/^[01]+$/)) {
         notInLanguageToast();
-        // console.log("No valid configuration for input string/empty");
-      } else if (input.includes("0") || input.includes("1")) {
+      } else {
         setSimulating(true);
-        // console.log("PROB2");
         results = new DFA(input, problem2, language2);
-        // console.log(results);
         const pathWithZeroes = [0].concat(...results.path.map((e) => [e, 0]));
-        // console.log(pathWithZeroes);
+        let messageDisplayed = false;
         pathWithZeroes.some((node, i) => {
           setTimeout(() => {
-            setCurrentNode(node);
-            node == pathWithZeroes[pathWithZeroes.length - 2] &&
-            !pathWithZeroes.includes("eos")
-              ? handleValid()
-              : pathWithZeroes.slice(-4)[3 - 1] == node && handleShort();
+              setCurrentNode(node);
+              if ((node === "T1" || node === "T2") && !messageDisplayed) {
+                  handleTrapped();
+                  messageDisplayed = true;
+              } else if (node === 9 && !messageDisplayed) {
+                  handleValid();
+                  messageDisplayed = true;
+              } else if (i === pathWithZeroes.length - 2 && !messageDisplayed) {
+                  if (input.length < 6) {
+                      handleShort();
+                      messageDisplayed = true;
+                  } else if (node === 9) {
+                      handleValid();
+                      messageDisplayed = true;
+                      return true;
+                  } else {
+                      handleInvalid();
+                      messageDisplayed = true;
+                  }
+              }
           }, i * 200);
-        });
-      } else {
-        notInLanguageToast();
-        // console.log("No valid configuration for input string!!");
+      });
+      
       }
     }
   };
-
+  
   return (
     <Flex
       direction={["column", "column", "column", "column", "column", "row"]}
       align="center"
-    >
+      >
       <LeftBox
-        handleTest={handleTest}
-        data={data}
-        prob2={prob2}
-        string={string}
-        handleTextChange={handleTextChange}
-        simulating={simulating}
-        handleSimulation={handleSimulation}
-        handleReset={handleReset}
-        count={count}
-        regex1={regex1}
-        regex2={regex2}
-      />
+           handleTest={handleTest}
+           data={data}
+           prob2={prob2}
+           string={string}
+           handleTextChange={handleTextChange}
+           simulating={simulating}
+           handleSimulation={handleSimulation}
+           handleReset={handleReset}
+           count={count}
+           regex1={regex1}
+           regex2={regex2}
+         />
       <Divider
-        display={["block", null, "block", null, null, "none"]}
-        mt="6"
-        mb="2"
+      display={["block", null, "block", null, null, "none"]}
+      mt="6"
+      mb="2"
       />
       <RightBox
-        prob2={prob2}
-        simulating={simulating}
-        regex1={regex1}
-        regex2={regex2}
-        currentNode={currentNode}
-        handleSwitch={handleSwitch}
-      />
-    </Flex>
-  );
-};
-
-export default Main;
+           prob2={prob2}
+           simulating={simulating}
+           regex1={regex1}
+           regex2={regex2}
+           currentNode={currentNode}
+           handleSwitch={handleSwitch}
+         />
+      </Flex>
+      );
+      };
+      
+      export default Main;
