@@ -24,7 +24,7 @@ const variants = {
 const FirstDFA = ({ currentNode, simulating }) => {
   return (
     <>
-      {/* ARROW LOOPS */}
+      {/* ARROW LOOP */}
       
       {/* q14 */}
       <ArrowLoopSm
@@ -235,9 +235,9 @@ const FirstDFA = ({ currentNode, simulating }) => {
         left={["84%", "84%", "86.9%", "86.9%", "86.9%", "86.9%"]}
         rotate={["104.5", "104.5", "110", "110", "110", "110"]}
       />
-      
-      {/* ARROW HEADS */}
 
+      {/* ArrowHead */}
+      
       {/* q1 q2 */}
       <ArrowHead
         top={["26.4%", "26.4%", "26.4%", "26.4%", "26.4%", "26.4%"]}
@@ -630,7 +630,7 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 1 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q1 {/* - */}
+        – {/* q1 */}
       </Atom>
       <Atom
         variant="q2"
@@ -639,7 +639,7 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 2 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q2
+        {/* q2 */}
       </Atom>
       <Atom
         variant="q3"
@@ -648,7 +648,7 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 3 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q3
+        {/* q3 */}
       </Atom>
       <Atom
         variant="q4"
@@ -657,7 +657,7 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 4 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q4
+        {/* q4 */}
       </Atom>
       <Atom
         variant="q5"
@@ -666,7 +666,7 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 5 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q5
+        {/* q5 */}
       </Atom>
       <Atom
         variant="q6"
@@ -675,7 +675,7 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 6 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q6
+        {/* q6 */}
       </Atom>
       <Atom
         variant="q7"
@@ -684,7 +684,7 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 7 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q7
+        {/* q7 */}
       </Atom>
       <Atom
         variant="q8"
@@ -693,7 +693,7 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 8 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q8
+        {/* q8 */}
       </Atom>
       <Atom
         variant="q9"
@@ -702,7 +702,7 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 9 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q9
+        {/* q9 */}
       </Atom>
       <Atom
         variant="q10"
@@ -711,7 +711,7 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 10 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q10
+        {/* q10 */}
       </Atom>
       <Atom
         variant="q11"
@@ -720,7 +720,7 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 11 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q11
+        {/* q11 */}
       </Atom>
       <Atom
         variant="q12"
@@ -729,7 +729,7 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 12 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q12
+        {/* q12 */}
       </Atom>
       <Atom
         variant="q13"
@@ -738,7 +738,7 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 13 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q13
+        {/* q13 */}
       </Atom>
       <Atom
         variant="q14"
@@ -747,7 +747,7 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 14 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q14 {/* + */}
+        + {/* q14 */}
       </Atom>
       <Atom
         variant="q15"
@@ -756,25 +756,25 @@ const FirstDFA = ({ currentNode, simulating }) => {
         animate={currentNode == 15 ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        q15 {/* + */}
+        + {/* q15 */}
       </Atom>
       <Atom
         variant="q16"
         variants={variants}
         initial="initial"
-        animate={currentNode == "T" ? "pulse" : ""}
+        animate={currentNode == "T1" ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        T
+        T {/* q16 */}
       </Atom>
       <Atom
         variant="q17"
         variants={variants}
         initial="initial"
-        animate={currentNode == "T" ? "pulse" : ""}
+        animate={currentNode == "T2" ? "pulse" : ""}
         whileHover={!simulating && "scale"}
       >
-        T
+        T {/* q17  */}
       </Atom>
 
     </>
