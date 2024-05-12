@@ -41,49 +41,49 @@ export const Badge = {
       top: "20%",
       left: "17.5%",
 
-      borderColor: "orange.300",
+      borderColor: "teal.300",
     },
     q3: {
       top: "80%",
       left: "17.5%",
 
-      borderColor: "orange.300",
+      borderColor: "teal.300",
     },
     q4: {
       top: "20%",
       left: "30.5%",
 
-      borderColor: "purple.300",
+      borderColor: "teal.300",
     },
     q5: {
       top: "50%",
       left: "30.5%",
 
-      borderColor: "purple.300",
+      borderColor: "teal.300",
     },
     q6: {
       top: "80%",
       left: "30.5%",
 
-      borderColor: "orange.300",
+      borderColor: "teal.300",
     },
     q7: {
       top: "20%",
       left: "43.5%",
 
-      borderColor: "orange.300",
+      borderColor: "teal.300",
     },
     q8: {
       top: "50%",
       left: "43.5%",
 
-      borderColor: "orange.300",
+      borderColor: "teal.300",
     },
     q9: {
       top: "80%",
       left: "43.5%",
 
-      borderColor: "purple.300",
+      borderColor: "teal.300",
     },
     q10: {
       top: "50%",
@@ -113,13 +113,13 @@ export const Badge = {
       top: "20%",
       left: "95.5%",
 
-      borderColor: "teal.300",
+      borderColor: "green.300",
     },
     q15: {
       top: "80%",
       left: "95.5%",
 
-      borderColor: "teal.300",
+      borderColor: "green.300",
     },
     q16: {
       top: "35%",
@@ -131,31 +131,31 @@ export const Badge = {
       top: "65%",
       left: "37%",
 
-      borderColor: "pink.300",
+      borderColor: "red.300",
     },
     1: {
       top: "50%",
       left: "11%",
 
-      borderColor: "orange.300",
+      borderColor: "blue.300",
     },
     2: {
       top: "20%",
       left: "24%",
 
-      borderColor: "purple.300",
+      borderColor: "teal.300",
     },
     3: {
       top: "80%",
       left: "24%",
 
-      borderColor: "orange.300",
+      borderColor: "teal.300",
     },
     4: {
       top: "50%",
       left: "37%",
 
-      borderColor: "orange.300",
+      borderColor: "teal.300",
     },
     5: {
       top: "20%",
@@ -167,25 +167,25 @@ export const Badge = {
       top: "50%",
       left: "63%",
 
-      borderColor: "purple.300",
+      borderColor: "teal.300",
     },
     7: {
       top: "20%",
       left: "76%",
 
-      borderColor: "purple.300",
+      borderColor: "teal.300",
     },
     8: {
       top: "80%",
       left: "76%",
 
-      borderColor: "blue.300",
+      borderColor: "teal.300",
     },
     9: {
       top: "50%",
       left: "89%",
 
-      borderColor: "blue.300",
+      borderColor: "green.300",
     },
   },
   defaultProps: {
