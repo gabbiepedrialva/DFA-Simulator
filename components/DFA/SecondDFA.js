@@ -1,6 +1,12 @@
 import { Badge, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { ArrowHead, ArrowLoop, ArrowBody, ArrowLoopLg, ArrowLoopSm } from "../components/Arrows";
+import {
+  ArrowHead,
+  ArrowLoop,
+  ArrowBody,
+  ArrowLoopLg,
+  ArrowLoopSm,
+} from "../components/Arrows";
 
 const Atom = motion(Badge);
 
@@ -20,171 +26,288 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
   return (
     <>
       {/* NUMBERS */}
-      
-      {/* qN qN */}
-      <Text 
-        size="label" 
-        top="25%" 
-        left="15%">
+
+      {/* q1 q2 */}
+      <Text size="label" top="32%" left="13.5%">
         0
       </Text>
-      {/* qN qN */}
-      <Text 
-        size="label" 
-        top="75%" 
-        left="15%">
+      {/* q1 q3 */}
+      <Text size="label" top="70%" left="15.5%">
         1
       </Text>
-      {/* qN qN */}
-      <Text 
-        size="label" 
-        top="49.5%" 
-        left="97%">
+      {/* q9 */}
+      <Text size="label" top="49.5%" left="100%">
         0,1
       </Text>
+      {/* q2 q4 */}
+      <Text size="label" top="32%" left="33.5%">
+        0
+      </Text>
+      {/* q3 q4 */}
+      <Text size="label" top="70%" left="33.5%">
+        1
+      </Text>
+      {/* q4 q5 */}
+      <Text size="label" top="30.5%" left="40.5%">
+        0,1
+      </Text>
+      {/* q5 */}
+      <Text size="label" top="37.5%" left="50%">
+        0
+      </Text>
+      {/* q5 q6 */}
+      <Text size="label" top="32%" left="59%">
+        1
+      </Text>
+      {/* q6 q7 */}
+      <Text size="label" top="32%" left="67%">
+        0
+      </Text>
+      {/* q6 q8 */}
+      <Text size="label" top="32%" left="85%">
+        1
+      </Text>
+      {/* q7 q9 */}
+      <Text size="label" top="70%" left="67.5%">
+        1
+      </Text>
+      {/* q8 q9 */}
+      <Text size="label" top="70%" left="85.5%">
+        1
+      </Text>
 
+      {/* q7 q5 */}
+      <Text size="label" top="14%" left="63.3%">
+        0
+      </Text>
+
+      {/* q8 q7 */}
+      <Text size="label" top="50%" left="78.5%">
+        0
+      </Text>
+
+      {/* q3 q2 */}
+      <Text size="label" top="50%" left="20.5%">
+        0
+      </Text>
+
+      {/* q2 q3 */}
+      <Text size="label" top="50%" left="27.5%">
+        1
+      </Text>
 
       {/* ARROW BODY */}
 
-      {/* qN qN */}
+      {/* q1 q2 */}
       <ArrowBody
-        w={["15em", "15em", "31em", null, null, "47em"]}
-        top={["58%", "58%", "55%", "55%", "55%", "55%"]}
-        left="50%"
-      />
-      {/* qN qN */}
-      <ArrowBody
-        w={["8em", "8em", "11em", null, null, "11em"]}
-        top={["56%", "56%", "52%", null, null, "55%"]}
-        left={["65.5%", "65.5%", "67.5%", null, null, "68.5%"]}
-        rotate="90"
-      />
-      {/* qN qN */}
-      <ArrowBody
-        w={["4em", "4em", "4em", null, null, "3em"]}
-        top={["65%", "65%", "65%", null, null, "67%"]}
-        left={["45.5%", "45.5%", "48%", null, null, "48.5%"]}
-        rotate="90"
-      />
-      {/* qN qN */}
-      <ArrowBody
-        w={["5em", null, "8em", null, null, "13em"]}
-        top={["71%", null, "71%", null, null, "71%"]}
-        left={["36%", null, "38%", null, null, "38%"]}
-        rotate={["46", null, "38", null, null, "27"]}
-      />
-      {/* qN qN */}
-      <ArrowBody
-        w={["5em", null, "8em", null, null, "13em"]}
-        top={["71%", null, "71%", null, null, "71%"]}
-        left={["56%", null, "58%", null, null, "58%"]}
-        rotate={["46", null, "38", null, null, "27"]}
-      />
-      {/* qN qN */}
-      <ArrowBody
-        w={["5em", null, "8em", null, null, "12em"]}
-        top={["29%", null, "30%", null, null, "29%"]}
-        left={["56%", null, "58%", null, null, "58%"]}
-        rotate={["133", null, "141", null, null, "152"]}
-      />
-      {/* qN qN */}
-      <ArrowBody
-        w={["5em", null, "8em", null, null, "12em"]}
-        top={["27%", null, "29%", null, null, "29%"]}
-        left={["84%", null, "82%", null, null, "82%"]}
-        rotate={["227", null, "220", null, null, "208"]}
-      />
-      {/* qN qN */}
-      <ArrowBody
-        w={["3em", null, "5em", null, null, "9em"]}
-        top={["93%", null, "90%", null, null, "91%"]}
-        left="60%"
-      />
-      {/* qN qN */}
-      <ArrowBody
-        w={["5em", null, "8em", null, null, "12em"]}
-        top={["65%", null, "65%", null, null, "65%"]}
-        left={["75%", null, "77.5%", null, null, "79%"]}
-        rotate={["133", null, "141", null, null, "152"]}
+        w={["4em", "4em", "8em", "8em", "8em", "8em"]}
+        top={["30%", "30%", "30%", "30%", "30%", "30%"]}
+        left={["12.5%", "12.5%", "15%", "15%", "15%", "15%"]}
+        rotate={["126", "126", "135", "135", "135", "135"]}
       />
 
+      {/* q1 q3 */}
+      <ArrowBody
+        w={["4em", "4em", "8em", "8em", "8em", "8em"]}
+        top={["63%", "63%", "63%", "63%", "63%", "63%"]}
+        left={["21.5%", "21.5%", "19%", "19%", "19%", "19%"]}
+        rotate={["-126", "-126", "-135", "-135", "-135", "-135"]}
+      />
+
+      {/* q2 q4 */}
+      <ArrowBody
+        w={["4em", "4em", "8em", "8em", "8em", "8em"]}
+        top={["30%", "30%", "30%", "30%", "30%", "30%"]}
+        left={["35%", "35%", "32.5%", "32.5%", "32.5%", "32.5%"]}
+        rotate={["-126", "-126", "-135", "-135", "-135", "-135"]}
+      />
+
+      {/* q3 q4 */}
+      <ArrowBody
+        w={["4em", "4em", "8em", "8em", "8em", "8em"]}
+        top={["60%", "60%", "60%", "60%", "60%", "60%"]}
+        left={["28%", "28%", "30.5%", "30.5%", "30.5%", "30.5%"]}
+        rotate={["126", "126", "135", "135", "135", "135"]}
+      />
+
+      {/* q4 q5 */}
+      <ArrowBody
+        w={["4em", "4em", "8em", "8em", "8em", "8em"]}
+        top={["30%", "30%", "30%", "30%", "30%", "30%"]}
+        left={["39.2%", "39.2%", "42%", "42%", "42%", "42%"]}
+        rotate={["126", "126", "135", "135", "135", "135"]}
+      />
+
+      {/* q5 q6 */}
+      <ArrowBody
+        w={["4em", "4em", "8em", "8em", "8em", "8em"]}
+        top={["30%", "30%", "30%", "30%", "30%", "30%"]}
+        left={["60.5%", "60.5%", "58%", "58%", "58%", "58%"]}
+        rotate={["-126", "-126", "-135", "-135", "-135", "-135"]}
+      />
+
+      {/* q6 q7 */}
+      <ArrowBody
+        w={["4em", "4em", "8em", "8em", "8em", "8em"]}
+        top={["30%", "30%", "30%", "30%", "30%", "30%"]}
+        left={["65.7%", "65.7%", "68.5%", "68.5%", "68.5%", "68.5%"]}
+        rotate={["126", "126", "135", "135", "135", "135"]}
+      />
+
+      {/* q6 q8 */}
+      <ArrowBody
+        w={["4em", "4em", "8em", "8em", "8em", "8em"]}
+        top={["60%", "60%", "60%", "60%", "60%", "60%"]}
+        left={["72.2%", "72.2%", "69.5%", "69.5%", "69.5%", "69.5%"]}
+        rotate={["-126", "-126", "-135", "-135", "-135", "-135"]}
+      />
+
+      {/* q7 q9 */}
+      <ArrowBody
+        w={["4em", "4em", "8em", "8em", "8em", "8em"]}
+        top={["30%", "30%", "30%", "30%", "30%", "30%"]}
+        left={["86.5%", "86.5%", "84%", "84%", "84%", "84%"]}
+        rotate={["-126", "-126", "-135", "-135", "-135", "-135"]}
+      />
+
+      {/* q8 q9 */}
+      <ArrowBody
+        w={["4em", "4em", "8em", "8em", "8em", "8em"]}
+        top={["60%", "60%", "60%", "60%", "60%", "60%"]}
+        left={["80.9%", "80.9%", "83.5%", "83.5%", "83.5%", "83.5%"]}
+        rotate={["126", "126", "135", "135", "135", "135"]}
+      />
+
+      {/* q7 q5 */}
+      <ArrowBody
+        w={["4em", "4em", "8em", "8em", "8em", "8em"]}
+        top={["28%", "28%", "25%", "25%", "25%", "25%"]}
+        left={["63.5%", "63.5%", "63.5%", "63.5%", "63.5%", "63.5%"]}
+      />
+
+      {/* q2 q3 */}
+      <ArrowBody
+        w={["8em", "8em", "10em", "10em", "10em", "10em"]}
+        top={["50%", "50%", "50%", "50%", "50%", "50%"]}
+        left={["20.2%", "20.2%", "73.7%", "73.7%", "73.7%", "73.7%"]}
+        rotate="90"
+      />
+
+      {/* q3 q2 */}
+      <ArrowBody
+        w={["8em", "8em", "10em", "10em", "10em", "10em"]}
+        top={["50%", "50%", "50%", "50%", "50%", "50%"]}
+        left={["18.5%", "18.5%", "20.7%", "20.7%", "20.7%", "20.7%"]}
+        rotate="90"
+      />
+
+      {/* q8 q7 */}
+      <ArrowBody
+        w={["8em", "8em", "10em", "10em", "10em", "10em"]}
+        top={["50%", "50%", "50%", "50%", "50%", "50%"]}
+        left={["71.2%", "71.2%", "22.7%", "22.7%", "22.7%", "22.7%"]}
+        rotate="90"
+      />
 
       {/* ARROW HEADS */}
 
-      {/* qN qN */}
+      {/* q1 q2 */}
       <ArrowHead
-        top={["50%", null, "49.7%", null, null, "49.7%"]}
-        left={["84.3%", null, "85.3%", null, null, "86.6%"]}
-      />
-      {/* qN qN */}
-      <ArrowHead
-        top={["50%", null, "49.7%", null, null, "49.7%"]}
-        left={["64.2%", null, "65.3%", null, null, "66.6%"]}
-      />
-      {/* qN qN */}
-      <ArrowHead
-        top={["50%", null, "49.7%", null, null, "49.7%"]}
-        left={["44.3%", null, "45.3%", null, null, "46.6%"]}
-      />
-      {/* qN qN */}
-      <ArrowHead
-        top={["50%", null, "49.7%", null, null, "49.7%"]}
-        left={["24.3%", null, "25.3%", null, null, "26.6%"]}
-      />
-      {/* qN qN */}
-      <ArrowHead
-        top={["60%", null, "61%", null, null, "61.5%"]}
-        left={["50.3%", null, "50.4%", null, null, "50.1%"]}
-        rotate="-90"
-      />
-      {/* qN qN */}
-      <ArrowHead
-        top={["77.5%", null, "79%", null, null, "80.6%"]}
-        left={["46.3%", null, "46.3%", null, null, "46.8%"]}
-        rotate={["46", null, "38", null, null, "27"]}
-      />
-      {/* qN qN */}
-      <ArrowHead
-        top={["22.7%", null, "21.7%", null, null, "19.3%"]}
-        left={["65.9%", null, "66.4%", null, null, "66.8%"]}
-        rotate={["315", null, "324", null, null, "330"]}
-      />
-      {/* qN qN */}
-      <ArrowHead
-        top={["56.9%", null, "56.8%", null, null, "56.5%"]}
-        left={["54.4%", null, "53.6%", null, null, "53%"]}
-        rotate={["226", null, "218", null, null, "215"]}
-      />
-      {/* qN qN */}
-      <ArrowHead
-        top={["85.4%", null, "84.7%", null, null, "85.8%"]}
-        left={["64.2%", null, "65.3%", null, null, "66.6%"]}
-      />
-      {/* qN qN */}
-      <ArrowHead
-        top={["75%", null, "74.7%", null, null, "73.6%"]}
-        left={["70.2%", null, "69.9%", null, null, "70.1%"]}
-        rotate="90"
-      />
-      {/* qN qN */}
-      <ArrowHead
-        top={["40.1%", null, "39.8%", null, null, "38.6%"]}
-        left={["70.2%", null, "69.9%", null, null, "70.1%"]}
-        rotate="90"
-      />
-      {/* qN qN */}
-      <ArrowHead
-        top={["57.2%", null, "56.5%", null, null, "56.6%"]}
-        left={["85.7%", null, "86.2%", null, null, "87.1%"]}
-        rotate={["315", null, "321", null, null, "330"]}
-      />
-      {/* qN qN */}
-      <ArrowHead
-        top={["42.4%", null, "44%", null, null, "44%"]}
-        left={["86%", null, "86.2%", null, null, "87.1%"]}
-        rotate={["40", null, "40", null, null, "30"]}
+        top={["25%", "25%", "24.5%", "24.5%", "24.5%", "24.5%"]}
+        left={["20.5%", "20.5%", "20.8%", "20.8%", "20.8%", "20.8%"]}
+        rotate={["-45", "-45", "-45", "-45", "-45", "-45"]}
       />
 
+      {/* q1 q3 */}
+      <ArrowHead
+        top={["74.8%", "74.8%", "74.8%", "74.8%", "74.8%", "74.8%"]}
+        left={["20.9%", "20.9%", "20.9%", "20.9%", "20.9%", "20.9%"]}
+        rotate={["40", "40", "40", "40", "40", "40"]}
+      />
+
+      {/* q2 q3 */}
+      <ArrowHead
+        top={["72.5%", "72.5%", "71.9%", "71.9%", "71.9%", "71.9%"]}
+        left={["25%", "25%", "25%", "25%", "25%", "25%"]}
+        rotate="90"
+      />
+
+      {/* q3 q2 */}
+      <ArrowHead
+        top={["27.5%", "27.5%", "28.3%", "28.3%", "28.3%", "28.3%"]}
+        left={["23.1%", "23.1%", "23.1%", "23.1%", "23.1%", "23.1%"]}
+        rotate="270"
+      />
+
+      {/* q3 q4 */}
+      <ArrowHead
+        top={["57.2%", "57.2%", "57.2%", "57.2%", "57.2%", "57.2%"]}
+        left={["35.1%", "35.1%", "35.1%", "35.1%", "35.1%", "35.1%"]}
+        rotate={["-45", "-45", "-45", "-45", "-45", "-45"]}
+      />
+
+      {/* q2 q4 */}
+      <ArrowHead
+        top={["43.1%", "43.1%", "43.1%", "43.1%", "43.1%", "43.1%"]}
+        left={["34.8%", "34.8%", "34.9%", "34.9%", "34.9%", "34.9%"]}
+        rotate={["45", "45", "45", "45", "45", "45"]}
+      />
+
+      {/* q4 q5 */}
+      <ArrowHead
+        top={["25.6%", "25.6%", "25.6%", "25.6%", "25.6%", "25.6%"]}
+        left={["47%", "47%", "47.3%", "47.3%", "47.3%", "47.3%"]}
+        rotate={["-45", "-45", "-45", "-45", "-45", "-45"]}
+      />
+
+      {/* q5 q6 */}
+      <ArrowHead
+        top={["43.4%", "43.4%", "43.4%", "43.4%", "43.4%", "43.4%"]}
+        left={["60.5%", "60.5%", "60.6%", "60.6%", "60.6%", "60.6%"]}
+        rotate={["45", "45", "45", "45", "45", "45"]}
+      />
+
+      {/* q6 q7 */}
+      <ArrowHead
+        top={["26.3%", "26.3%", "26.3%", "26.3%", "26.3%", "26.3%"]}
+        left={["73.2%", "73.2%", "73.5%", "73.5%", "73.5%", "73.5%"]}
+        rotate={["-45", "-45", "-45", "-45", "-45", "-45"]}
+      />
+
+      {/* q6 q8 */}
+      <ArrowHead
+        top={["74.5%", "74.5%", "75.1%", "75.1%", "75.1%", "75.1%"]}
+        left={["72.7%", "72.7%", "73%", "73%", "73%", "73%"]}
+        rotate={["40", "40", "40", "40", "40", "40"]}
+      />
+
+      {/* q8 q7 */}
+      <ArrowHead
+        top={["27.8%", "27.8%", "28.4%", "28.4%", "28.4%", "28.4%"]}
+        left={["76%", "76%", "76%", "76%", "76%", "76%"]}
+        rotate="270"
+      />
+
+      {/* q7 q9 */}
+      <ArrowHead
+        top={["43.4%", "43.4%", "43.4%", "43.4%", "43.4%", "43.4%"]}
+        left={["86.7%", "86.7%", "86.7%", "86.7%", "86.7%", "86.7%"]}
+        rotate={["45", "45", "45", "45", "45", "45"]}
+      />
+
+      {/* q8 q9 */}
+      <ArrowHead
+        top={["57.7%", "57.7%", "58.1%", "58.1%", "58.1%", "58.1%"]}
+        left={["87.8%", "87.8%", "87.6%", "87.6%", "87.6%", "87.6%"]}
+        rotate={["-50", "-50", "-50", "-50", "-50", "-50"]}
+      />
+
+      {/* q7 q5 */}
+      <ArrowHead
+        top={["19.8%", "19.8%", "19.7%", "19.7%", "19.7%", "19.7%"]}
+        left={["54.5%", "54.5%", "53.9%", "53.9%", "53.9%", "53.9%"]}
+        rotate="180"
+      />
 
       {/* ARROW LOOPS */}
 
@@ -202,7 +325,6 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         rotate="180"
       />
 
-
       {/* STATES */}
 
       <Atom
@@ -212,8 +334,9 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 1 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q1
+        – {/* q1 */}
       </Atom>
+
       <Atom
         variant="2"
         variants={variants}
@@ -221,7 +344,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 2 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q2
+        {/* q2 */}
       </Atom>
       <Atom
         variant="3"
@@ -230,7 +353,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 3 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q3
+        {/* q3 */}
       </Atom>
       <Atom
         variant="4"
@@ -239,7 +362,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 4 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q4
+        {/* q4 */}
       </Atom>
       <Atom
         variant="5"
@@ -248,7 +371,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 5 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q5
+        {/* q5 */}
       </Atom>
       <Atom
         variant="6"
@@ -257,7 +380,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 6 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q6
+        {/* q6 */}
       </Atom>
       <Atom
         variant="7"
@@ -266,7 +389,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 7 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q7
+        {/* q7 */}
       </Atom>
       <Atom
         variant="8"
@@ -275,7 +398,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 8 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q8
+        {/* q8 */}
       </Atom>
       <Atom
         variant="9"
@@ -284,7 +407,7 @@ const SecondDFA = ({ currentNodeVal, simulatingStatus }) => {
         animate={currentNodeVal == 9 ? "pulse" : ""}
         whileHover={!simulatingStatus && "scale"}
       >
-        q9
+        + {/* q9 */}
       </Atom>
     </>
   );
