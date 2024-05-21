@@ -40,6 +40,8 @@ const Main = () => {
     setCount(0);
     setData("");
     closeAll();
+    setCurrentNode(0);
+    setSimulating(false);
   };
 
   const handleSwitch = () => {
@@ -104,35 +106,38 @@ const Main = () => {
     setSimulating(false);
     trapToast();
     setData(results);
+    setTimeout(() => setCurrentNode(0), 200);
   };
 
   const handleShort = () => {
     setSimulating(false);
     shortToast();
     setData(results);
+    setTimeout(() => setCurrentNode(0), 200);
   };
 
   const handleInvalid = () => {
     setSimulating(false);
     invalidToast();
     setData(results);
+    setTimeout(() => setCurrentNode(0), 200);
   };
 
   const handleValid = () => {
     setSimulating(false);
     validToast();
     setData(results);
+    setTimeout(() => setCurrentNode(0), 200);
   };
 
   const handleInputString = () => {
     input = input.replace(/\s+/g, "").toLowerCase();
   };
 
-
   const handleTest = (e) => {
     e.preventDefault();
     handleInputString();
-  
+
     if (!prob2) {
       if (input === "") {
         emptyToast();
@@ -153,12 +158,11 @@ const Main = () => {
       }
     }
   };
-  
-  
+
   const handleSimulation = (e) => {
     e.preventDefault();
     handleInputString();
-  
+
     if (!prob2) {
       if (input === "") {
         emptyToast();
@@ -171,22 +175,25 @@ const Main = () => {
         let messageDisplayed = false;
         pathWithZeroes.some((node, i) => {
           setTimeout(() => {
+            if (messageDisplayed) return;
+
             setCurrentNode(node);
+
             if ((node === "T1" || node === "T2") && !messageDisplayed) {
               handleTrapped();
               messageDisplayed = true;
             } else if (i === pathWithZeroes.length - 2 && !messageDisplayed) {
-                if (input.length < 7) {
-                    handleShort();
-                    messageDisplayed = true;
-                } else if (node === 14 || node === 15) {
-                    handleValid();
-                    messageDisplayed = true;
-                } else {
-                    handleInvalid();
-                    messageDisplayed = true;
-                }
+              if (input.length < 7) {
+                handleShort();
+                messageDisplayed = true;
+              } else if (node === 14 || node === 15) {
+                handleValid();
+                messageDisplayed = true;
+              } else {
+                handleInvalid();
+                messageDisplayed = true;
               }
+            }
           }, i * 200);
         });
       }
@@ -200,68 +207,66 @@ const Main = () => {
         results = new DFA(input, problem2, language2);
         const pathWithZeroes = [0].concat(...results.path.map((e) => [e, 0]));
         let messageDisplayed = false;
+
         pathWithZeroes.some((node, i) => {
           setTimeout(() => {
-              setCurrentNode(node);
-              if ((node === "T1" || node === "T2") && !messageDisplayed) {
-                  handleTrapped();
-                  messageDisplayed = true;
-              } else if (node === 9 && !messageDisplayed) {
-                  handleValid();
-                  messageDisplayed = true;
-              } else if (i === pathWithZeroes.length - 2 && !messageDisplayed) {
-                  if (input.length < 6) {
-                      handleShort();
-                      messageDisplayed = true;
-                  } else if (node === 9) {
-                      handleValid();
-                      messageDisplayed = true;
-                      return true;
-                  } else {
-                      handleInvalid();
-                      messageDisplayed = true;
-                  }
+            if (messageDisplayed) return;
+
+            setCurrentNode(node);
+
+            if (node === 9) {
+              handleValid();
+              messageDisplayed = true;
+            } else if (i === pathWithZeroes.length - 2) {
+              if (input.length < 6) {
+                handleShort();
+                messageDisplayed = true;
+              } else {
+                handleInvalid();
+                messageDisplayed = true;
               }
+            }
           }, i * 200);
-      });
-      
+
+          if (messageDisplayed) return true;
+        });
       }
     }
   };
-  
+
   return (
     <Flex
       direction={["column", "column", "column", "column", "column", "row"]}
       align="center"
-      >
+    >
       <LeftBox
-           handleTest={handleTest}
-           data={data}
-           prob2={prob2}
-           string={string}
-           handleTextChange={handleTextChange}
-           simulating={simulating}
-           handleSimulation={handleSimulation}
-           handleReset={handleReset}
-           count={count}
-           regex1={regex1}
-           regex2={regex2}
-         />
+        handleTest={handleTest}
+        data={data}
+        prob2={prob2}
+        string={string}
+        handleTextChange={handleTextChange}
+        simulating={simulating}
+        handleSimulation={handleSimulation}
+        handleReset={handleReset}
+        count={count}
+        regex1={regex1}
+        regex2={regex2}
+      />
       <Divider
-      display={["block", null, "block", null, null, "none"]}
-      mt="6"
-      mb="2"
+        display={["block", null, "block", null, null, "none"]}
+        mt="6"
+        mb="2"
       />
       <RightBox
-           prob2={prob2}
-           simulating={simulating}
-           regex1={regex1}
-           regex2={regex2}
-           currentNode={currentNode}
-           handleSwitch={handleSwitch}
-         />
-      </Flex>
-      );
-      };
-      
-      export default Main;
+        prob2={prob2}
+        simulating={simulating}
+        regex1={regex1}
+        regex2={regex2}
+        currentNode={currentNode}
+        handleSwitch={handleSwitch}
+      />
+    </Flex>
+  );
+};
+
+export default Main;
